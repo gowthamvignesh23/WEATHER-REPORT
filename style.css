@@ -1,0 +1,260 @@
+:root{
+    --ink: #1c2128;
+    --paper: #f6f4ee;
+    --line: #d8d3c4;
+    --accent: #2f5d50;
+    --accent-soft: #e4ede9;
+    --sun: #c98a2c;
+    --rain: #3d6b93;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    color: var(--ink);
+    font-family: var(--sans);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 32px 16px;
+    background-image:
+      linear-gradient(180deg, rgba(15,20,18,0.45), rgba(15,20,18,0.55)),
+      url('https://wallpaperaccess.com/full/52279.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .card{
+    width:100%;
+    max-width: 480px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow:hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  .card__top{
+    padding: 28px 28px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand{
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+
+  .search{
+    display:flex;
+    gap:8px;
+  }
+
+  .search input{
+    flex:1;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: var(--sans);
+    font-size: 15px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .search input:focus{
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  .search button{
+    padding: 11px 16px;
+    border: none;
+    border-radius: 3px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .search button:hover{ background:#264d42; }
+  .search button:disabled{ background:#9caba5; cursor: wait; }
+
+  .locate{
+    background:none;
+    border:none;
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 10px 0 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .status{
+    padding: 40px 28px;
+    text-align:center;
+    color:#6b7280;
+    font-size: 14px;
+    display:none;
+  }
+  .status.visible{ display:block; }
+  .status.is-error{ color:#a13a2f; }
+
+  .result{
+    display:none;
+  }
+  .result.visible{ display:block; }
+
+  .result__place{
+    padding: 22px 28px 0;
+  }
+
+  .result__place h1{
+    margin:0;
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .result__place p{
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .result__now{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    padding: 18px 28px 24px;
+  }
+
+  .temp{
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .temp sup{
+    font-size: 28px;
+    font-weight: 400;
+    top: -0.6em;
+  }
+
+  .condition{
+    text-align:right;
+  }
+
+  .condition__icon{
+    font-size: 34px;
+    line-height:1;
+    display:block;
+    margin-bottom: 4px;
+  }
+
+  .condition__label{
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .detail-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+
+  .detail{
+    padding: 16px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .detail:last-child{ border-right:none; }
+
+  .detail__label{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #6b7280;
+    margin:0 0 6px;
+  }
+
+  .detail__value{
+    font-size: 17px;
+    margin:0;
+    font-weight: 600;
+  }
+
+  .forecast{
+    border-top: 1px solid var(--line);
+    padding: 18px 28px 24px;
+  }
+
+  .forecast__label{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #6b7280;
+    margin: 0 0 12px;
+  }
+
+  .forecast__row{
+    display:flex;
+    justify-content:space-between;
+    gap: 6px;
+  }
+
+  .forecast__day{
+    text-align:center;
+    flex:1;
+  }
+
+  .forecast__day .d{
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .forecast__day .i{
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .forecast__day .t{
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .forecast__day .t span{
+    color:#9ca3af;
+    font-weight:400;
+  }
+
+  footer{
+    text-align:center;
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 18px;
+    font-family: var(--mono);
+  }
+
+  footer a{ color: inherit; }
+
+  @media (prefers-reduced-motion: no-preference){
+    .result.visible, .status.visible{
+      animation: rise 0.25s ease;
+    }
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(4px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
