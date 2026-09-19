@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weathervane — quick weather lookup</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div style="width:100%; max-width:480px;">
+  <div class="card">
+    <div class="card__top">
+      <p class="brand">weathervane</p>
+      <form class="search" id="searchForm">
+        <input type="text" id="cityInput" placeholder="Search a city…" autocomplete="off" />
+        <button type="submit" id="searchBtn">Search</button>
+      </form>
+      <button type="button" class="locate" id="locateBtn">Use my location instead</button>
+    </div>
+
+    <div class="status" id="status">Search for a city to see its weather.</div>
+
+    <div class="result" id="result">
+      <div class="result__place">
+        <h1 id="placeName">—</h1>
+        <p id="placeMeta">—</p>
+      </div>
+
+      <div class="result__now">
+        <div class="temp" id="tempNow">—<sup>°C</sup></div>
+        <div class="condition">
+          <span class="condition__icon" id="conditionIcon">—</span>
+          <span class="condition__label" id="conditionLabel">—</span>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail">
+          <p class="detail__label">FEELS LIKE</p>
+          <p class="detail__value" id="feelsLike">—</p>
+        </div>
+        <div class="detail">
+          <p class="detail__label">WIND</p>
+          <p class="detail__value" id="wind">—</p>
+        </div>
+        <div class="detail">
+          <p class="detail__label">HUMIDITY</p>
+          <p class="detail__value" id="humidity">—</p>
+        </div>
+      </div>
+
+      <div class="forecast">
+        <p class="forecast__label">NEXT 5 DAYS</p>
+        <div class="forecast__row" id="forecastRow"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Data from Open-Meteo · no API key required</footer>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
